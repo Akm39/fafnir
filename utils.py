@@ -4,6 +4,7 @@ import warnings
 warnings.filterwarnings("ignore")
 import pandas as pd
 import yfinance as yf
+import pickle as pkl
 
 def check(data,labels):
     """
@@ -66,3 +67,6 @@ def data_pool(tickers,start='2021-01-01',end='2024-01-01'):
     data.columns=tickers
     return data
 
+def read_pkl(filepath):
+    with open(filepath, 'rb') as file:
+        return pkl.load(file)
