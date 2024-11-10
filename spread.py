@@ -1,4 +1,5 @@
 import pandas as pd
+import datetime as dt
 
 def make_spread(coef_matrix,price_df):
     asset_order=list(coef_matrix.columns)
@@ -28,6 +29,10 @@ class spread_manager:
         stdevs=pd.concat(stds,axis=1).T
         stdevs.index=self.signal.index
         self.signal_z=self.signal/stdevs
+        return self.signal_z
+    def new_z_score(self,cutoff=dt.date(2023,12,31)):
+        signals_std=self.signal[self.signal.index<=pd.Timestamp(cutoff)].std()
+        self.signal_z=self.signal/signals_std
         return self.signal_z
     def signal_z_score_filter(self,threshold=3):
         self.filterer=(self.signal_z<threshold)&(self.signal_z>-threshold)

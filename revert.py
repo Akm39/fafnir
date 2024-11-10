@@ -33,3 +33,9 @@ def df_to_dict(df):
     MAKE SURE CORRECT INDEX IS PROVIDED (USED AS INDEX IN DICT)
     """
     return dict(df.iterrows())
+
+def df_to_inv_mom(data,lag=30):
+    """
+    Use Z Scores not actual signals
+    """
+    return -(data - data.shift(lag))
