@@ -16,6 +16,7 @@ class spread_manager:
         self.spread_list=list(self.spreads.columns)
     def calc_costs(self,margin=0.2):
         self.abs_coefs=abs(self.coef_matrix.copy())
+        self.abs_coefs['CONST']=0
         self.costs=margin*((self.abs_coefs@self.data[self.asset_order].T)).T
     def raw_signal(self):
         self.signal=-self.spreads/self.costs
