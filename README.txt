@@ -12,10 +12,9 @@ all_coefs.py - wrapper for grouptester.py, iterates over all industry groups app
 
 coefs.py - given coefficient matrix & price vector calculates weight matrix (probably shouldn't precompute price matrix due to speed)
 
-WIP/SLIGHT CHANGES:
 spread.py - takes coefficient matrix & calcs spreads, signals, z scores
 revert.py - takes spreads & calculates the half-life of mean reversion (based on a lag)
 
 TO DO:
 1. pnl.py - calculates pnl based on old weights -> new weights (transaction costs) & new weights -> next period weights (price change)
-2. optimization.py - takes all precomputed data (coef matrix, signals, half lifes, cov matrix, betas, returns) and does a day by day optimization of the portfolio w/weight matrixes computed by coefs.py and pnl computed by pnl.py
+2. optimization.py - takes all precomputed data (coef matrix, signals, reversions, cov matrix, betas, returns) and does a day by day optimization of the portfolio w/weight matrixes computed by coefs.py and pnl computed by pnl.py
