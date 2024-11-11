@@ -10,7 +10,8 @@ class spread_manager:
         """
         ENSURE ASSET DATA & COEF_MATRIX ARE IN THE SAME ORDER BEFORE IMPORTING
         """
-        self.data = data
+        self.data = data.copy()
+        self.data['CONST']=1
         self.coef_matrix = coef_matrix
         self.asset_order=list(coef_matrix.columns)
         self.spreads=((self.coef_matrix@self.data[self.asset_order].T)).T

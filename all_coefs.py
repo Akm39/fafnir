@@ -1,5 +1,6 @@
 from grouptester import group_to_coef,agg_sectors
 from tqdm.notebook import tqdm
+from utils import read_pkl
 
 class all_coefs:
     def __init__(self, data_obj):
@@ -37,3 +38,7 @@ class all_coefs:
     def dump_matrix(self,name):
         root='data/'+self.data.dataset+'/'+name
         self.final.to_pickle(root)
+
+def load_coefs(data_obj,coef_filename):
+    path='data/'+data_obj.dataset+'/'+coef_filename
+    return read_pkl(path)

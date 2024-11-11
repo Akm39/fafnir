@@ -4,6 +4,7 @@ import pickle as pkl
 from covs import cov_B_maker
 import datetime as dt
 import pandas as pd
+import numpy as np
 
 class data_saver:
     def __init__(self,dataset='2024-01-01'):
@@ -96,4 +97,4 @@ class data_loader:
         """
         Returns list of all dates
         """
-        return list(self.data['Returns'].keys())
+        return np.array(list(self.data['Returns'].keys()))
