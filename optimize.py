@@ -72,7 +72,7 @@ class optimizer:
         for epoch in range(n_epochs):
             grads = compute_gradients(t)
             self.optimizer.apply_gradients(zip([grads], [t]))
-            if epoch % 10 == 0:
-                print(f"Epoch {epoch}, Objective value: {obj_func(t).numpy()}")
+            #if epoch % 100 == 0:
+            #    print(f"Epoch {epoch}, Objective value: {obj_func(t).numpy()}")
         
         return t,c_A@t,c_beta,c_cov
