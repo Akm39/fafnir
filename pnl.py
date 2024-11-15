@@ -18,9 +18,9 @@ class pnl:
         post_trade_val=old_value-trans_costs
 
         total_margin=margin*sum(abs(new_dol_pos))
-        loan_interest=int_loan*total_margin
+        loan_interest=int_loan*((new_dol_pos[new_dol_pos>0].sum())-total_margin)
 
-        total_shorts=-sum(new_dol_pos.clip(upper=0))
+        total_shorts=-(new_dol_pos[new_dol_pos<0]).sum()
         short_interest=int_shorts*total_shorts
 
         resid_cash=post_trade_val-total_margin

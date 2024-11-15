@@ -5,3 +5,4 @@ data/2024-01-01/all_data.pkl
 all_coefs_Testing.ipynb
 data/2024-01-01/t025imb05corr085typeabs.pkl
 data/2024-01-01/t025imb05corr085typestd.pkl
+*.pkl
